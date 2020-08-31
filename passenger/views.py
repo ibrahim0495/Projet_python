@@ -1,21 +1,7 @@
 from django.shortcuts import render,redirect
+from .models import Trajet,Personne,Passenger
+from django.forms import ModelForm,modelformset_factory
 
-from django.conf import settings
-
-from django.http import HttpResponse
-
-from django.conf.urls.static import static
-
-from . import models
-
-from django.contrib.auth.models import User
-
-
-from django.contrib.auth.decorators import login_required
-'''
-The @login_required declarator limits access of view function to only 
-authenticated users
-'''
 #---------------------------------------------------------------------#
 '''End Of Import'''
 #---------------------------------------------------------------------#
@@ -27,6 +13,19 @@ authenticated users
 #LANDING PAGE VIEW FUNCTION
 #################################################################################################################################################################################
 
-#Login page view function
 def landing(request):
     return render(request,'landingpage/land-page.html')
+
+def load_passenger(request):
+    trajetFormSet = modelformset_factory(Trajet,fields=('depart','arrivee','prix'))
+    formset = trajetFormSet()
+    print(formset)
+    return render(request, 'passenger/base.html',{"formset":formset})
+
+def trajet_souscrite(request):
+    obj = str(request.GET)
+    query = request.GET['query']
+    message = "{}".format(obj, query)
+    dico={}
+    dico[0]=message
+    return render(request,'passenger/souscrire.html',dico)
