@@ -31,6 +31,17 @@ class Passenger(models.Model):
     '''
     personne= models.ForeignKey(Personne,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.personne
+
+class Conducteur(models.Model):
+    personne= models.ForeignKey(Personne,on_delete=models.CASCADE)
+    nb_places = models.IntegerField()
+
+    def __str__(self):
+        return self.personne
+
+
 class Trajet(models.Model):
     depart= models.CharField(max_length=50)
     arrivee= models.CharField(max_length=50)
@@ -39,7 +50,12 @@ class Trajet(models.Model):
     def __str__(self):
         return self.depart + ' ' + self.arrivee+' '+str(self.prix)
 
+class Voyage(models.Model):
+    trajet = models.ForeignKey(Trajet,on_delete=models.CASCADE)
+    passenger = models.ForeignKey(Passenger,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.passenger +" "+ self.trajet
 
 
 #################################################################################################################################################################################
