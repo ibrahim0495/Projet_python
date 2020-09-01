@@ -41,14 +41,16 @@
                             <th>Départ</th>
                             <th>Arrivé</th>
                             <th>Prix</th>
+                            <th>Modifier</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for element in dataTrajet %}
                             <tr>
-                                <td> {{ element.depart }} </td>>
-                                <td> {{ element.arrivee }} </td>>
-                                <td> {{ element.prix }} </td>>
+                                <td> {{ element.depart }} </td>
+                                <td> {{ element.arrivee }} </td>
+                                <td> {{ element.prix }} </td>
+                                <td> <button class="btn btn-sucess"><a href="/driver/modif_trajet?idT={{ element.id }}">Modifier</a></button> </td>
                             </tr>
                         {% endfor %}
                     </tbody>

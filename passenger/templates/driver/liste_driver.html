@@ -34,15 +34,17 @@
                         <tr>
                             <th>Prénom</th>
                             <th>Nom</th>
+                            <th>Nombre de place</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for element in dataDriver %}
                             <tr>
-                                <td> {{ element.prenom }} </td>>
-                                <td> {{ element.nom }} </td>>
-                                <td><button class="btn btn-success"><a href="/driver/show_detail?query={{ element.prix }}"></a></button></td>>
+                                <td> {{ element.0 }} </td>
+                                <td> {{ element.1 }} </td>
+                                <td> {{ element.2 }} </td>
+                                <td><button class="btn btn-sucess"><a href="/driver/ajout_trajet?query={{ element.3 }}">Ajouter trajet</a></button></td>
                             </tr>
                         {% endfor %}
                     </tbody>
