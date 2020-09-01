@@ -26,11 +26,11 @@
     {% include 'passenger/navbar.html' %}
     <div class="container-fluid" id="body">
         {% block content %}
-            <h1>Trajet souscrite avec succés</h1>
+            <h1 style="text-align: center;">Trajet souscrite avec succés</h1>
                 {% for dic in dico %}
                     <h2>{{ dic }}</h2>
                 {% endfor %}
-            <h3>Bon voyage!</h3>
+            <h3 style="text-align: center;">Bon voyage!</h3>
         {% endblock %}
     </div>
 </body>

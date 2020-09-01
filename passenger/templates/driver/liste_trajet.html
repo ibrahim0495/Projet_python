@@ -24,23 +24,13 @@
 </head>
 
 <body>
-
-<div class="container">
-    <div class="homeheaderbody">
-
-        <div class="homeheader">
-
-            <h1>Welcome!</h1>
-
-        </div>
-                
-        <!-- Buttons -->
-        <div class="driverbtn"><a href="/driver/ajout_trajet"><p style="color: white"> Enregister trajet </p></a></div>
+    {% include 'driver/navbar.html' %}
+    {% block content %}
+    <h1>Liste Trajet</h1>
+    <div class="container">
 
     </div>
-
-</div>
-
+    {% endblock %}
 </body>
 
 </html>

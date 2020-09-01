@@ -1,0 +1,61 @@
+{% load bootstrap3 %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- STYLING CSS LINKED HERE -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <!-- ULKIT CSS -->
+    <link href="{% static 'ulkit/css/uikit.min.css' %}" rel="stylesheet">
+
+    <!-- ULKIT JS -->
+    <script type="text/javascript" src="{% static 'ulkit/js/uikit.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ulkit/js/uikit-icons.min.js' %}"></script>
+
+
+
+    <title> Conducteur</title>
+    {% block styles%} {% bootstrap_css %} {% endblock %}
+</head>
+
+<body>
+    {% include 'driver/navbar.html' %}
+    {% block content %}
+    <h1 style="text-align: center;">Enregistrement Trajet</h1>
+    <div class="container">
+        <form  method="POST" class="py-4">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Enregistrer</button>
+        </form>
+
+        <div class="table-responsive py-4">
+                <table class="table table-flush" id="datatable-basic">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Départ</th>
+                            <th>Arrivé</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for element in dataTrajet %}
+                            <tr>
+                                <td> {{ element.depart }} </td>>
+                                <td> {{ element.arrivee }} </td>>
+                                <td> {{ element.prix }} </td>>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
