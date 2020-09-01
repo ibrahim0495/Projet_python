@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.landing, name='landing'),
     path('driver/profile', views.landing_diver, name='driver'),
     path('driver/ajout_trajet', views.ajouter_trajet, name='form_ajout_trajet'),
+    path('driver/liste_driver', views.list_driver, name='driver_list'),
     path('passenger/base',views.load_passenger, name='accueil_passenger'),
     path('passenger/souscrire',views.trajet_souscrite, name='souscrire_trajet')
 

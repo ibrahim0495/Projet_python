@@ -29,6 +29,8 @@ def ajouter_trajet(request):
 
     return render(request, 'driver/ajout_trajet.html', {'form':form, 'dataTrajet':Trajet.objects.all()})
 
+def list_driver(request):
+    return render(request,'driver_list',{'dataDriver'})
 
 def load_passenger(request):
     trajetFormSet = modelformset_factory(Trajet,fields=('depart','arrivee','prix'))

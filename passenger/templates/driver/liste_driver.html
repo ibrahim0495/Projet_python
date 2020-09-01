@@ -1,0 +1,55 @@
+{% load bootstrap3 %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- STYLING CSS LINKED HERE -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <!-- ULKIT CSS -->
+    <link href="{% static 'ulkit/css/uikit.min.css' %}" rel="stylesheet">
+
+    <!-- ULKIT JS -->
+    <script type="text/javascript" src="{% static 'ulkit/js/uikit.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ulkit/js/uikit-icons.min.js' %}"></script>
+
+
+
+    <title> Conducteur</title>
+    {% block styles%} {% bootstrap_css %} {% endblock %}
+</head>
+
+<body>
+    {% include 'driver/navbar.html' %}
+    {% block content %}
+    <h1 style="text-align: center;">Liste des conducteurs</h1>
+    <div class="container">
+        <div class="table-responsive py-4">
+                <table class="table table-flush" id="datatable-basic">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for element in dataDriver %}
+                            <tr>
+                                <td> {{ element.prenom }} </td>>
+                                <td> {{ element.nom }} </td>>
+                                <td><button class="btn btn-success"><a href="/driver/show_detail?query={{ element.prix }}"></a></button></td>>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
