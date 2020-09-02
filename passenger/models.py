@@ -25,10 +25,6 @@ class Personne(models.Model):
         return self.prenom + ' ' + self.nom
 
 class Passenger(models.Model):
-    # Attribute Variables for Driver class to represent different columns in database
-    '''
-    name-: This is the name of the passenger
-    '''
     personne= models.ForeignKey(Personne,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -41,13 +37,11 @@ class Conducteur(models.Model):
 
 
 class Trajet(models.Model):
+    conducteur = models.ForeignKey(Conducteur, on_delete=models.CASCADE,default=1)
     depart= models.CharField(max_length=50)
     arrivee= models.CharField(max_length=50)
     prix= models.FloatField(max_length=10)
-    conducteur= models.ForeignKey(Conducteur,on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.depart + ' ' + self.arrivee+' '+str(self.prix)
 
 class Voyage(models.Model):
     trajet = models.ForeignKey(Trajet,on_delete=models.CASCADE)

@@ -17,17 +17,22 @@ from django.db import connection
 def landing(request):
     return render(request,'landingpage/land-page.html')
 
+def landing_accueil(request):
+    dataTrajet = Trajet.objects.all()
+    return render(request, 'landingpage/acceuil.html', {'dataTrajet': dataTrajet})
+
 def landing_diver(request):
     return render(request,'driver/home.html')
 
 def ajouter_trajet(request):
-    if request.method == "POST":
-        form= TrajetsForm(request.POST).save()
-        return redirect('form_ajout_trajet')
-    else:
+    form= TrajetsForm(request.POST or None)
+    if form.is_valid():
+        form.save()
         form = TrajetsForm()
+    dataTrajet=Trajet.objects.all()
+    return render(request, 'driver/ajout_trajet.html',{'dataTrajet': dataTrajet,'form':form})
 
-    return render(request, 'driver/ajout_trajet.html', {'form':form, 'dataTrajet':Trajet.objects.all()})
+
 
 def modifier_trajet(request):
     id_trajet = int(str(request.GET['idT']))

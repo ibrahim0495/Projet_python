@@ -28,9 +28,9 @@
     {% block content %}
     <h1 style="text-align: center;">Enregistrement Trajet</h1>
     <div class="container">
-        <form  method="POST" class="py-4">
+        <form  method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.as_p}}
             <button type="submit" class="btn btn-primary btn-lg btn-block">Enregistrer</button>
         </form>
 
@@ -40,8 +40,8 @@
                         <tr>
                             <th>Départ</th>
                             <th>Arrivé</th>
-                            <th>Prix</th>
-                            <th>Modifier</th>
+                            <th>Prix (FCFA)</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>

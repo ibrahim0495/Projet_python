@@ -20,6 +20,7 @@ urlpatterns = [
     # This is the landing-page url pattern having the ( ^ )-sign at the start means nothing comes before the defined url which will make it the index page##
 
     path('', views.landing, name='landing'),
+    path('landingpage/accueil', views.landing_accueil, name='landing_accueil'),
     path('driver/profile', views.landing_diver, name='driver'),
     path('driver/ajout_trajet', views.ajouter_trajet, name='form_ajout_trajet'),
     path('driver/modifier', views.trajet_modifier, name='form_modif_trajet'),
