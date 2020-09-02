@@ -48,6 +48,16 @@ def trajet_modifier(request):
         result = tjcursor.fetchall()
         return render(request, 'driver/liste_driver.html', {'dataDriver': result})
 
+def supprimer_trajet(request):
+    id_trajet = int(str(request.GET['idT']))
+    cursor = connection.cursor()
+    cursor.execute('delete from passenger_trajet where id= %s',[id_trajet])
+    cursor.fetchone()
+    tjcursor = connection.cursor()
+    tjcursor.execute('select passenger_personne.prenom,passenger_personne.nom,passenger_conducteur.nb_places,passenger_conducteur.id from passenger_personne join passenger_conducteur on passenger_personne.id=passenger_conducteur.id')
+    result = tjcursor.fetchall()
+    return render(request, 'driver/liste_driver.html', {'dataDriver': result})
+
 def list_driver(request):
     cursor= connection.cursor()
     cursor.execute('select passenger_personne.prenom,passenger_personne.nom,passenger_conducteur.nb_places,passenger_conducteur.id from passenger_personne join passenger_conducteur on passenger_personne.id=passenger_conducteur.id')

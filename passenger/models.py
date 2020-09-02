@@ -44,6 +44,7 @@ class Trajet(models.Model):
     depart= models.CharField(max_length=50)
     arrivee= models.CharField(max_length=50)
     prix= models.FloatField(max_length=10)
+    conducteur= models.ForeignKey(Conducteur,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.depart + ' ' + self.arrivee+' '+str(self.prix)

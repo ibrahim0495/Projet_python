@@ -50,7 +50,18 @@
                                 <td> {{ element.depart }} </td>
                                 <td> {{ element.arrivee }} </td>
                                 <td> {{ element.prix }} </td>
-                                <td> <button class="btn btn-sucess"><a href="/driver/modif_trajet?idT={{ element.id }}">Modifier</a></button> </td>
+                                <td>
+                                    <a
+                                        class="btn btn-sm btn-primary"
+                                        href="/driver/modif_trajet?idT={{ element.id }}">
+                                        <i class="fa fa-edit fa-lg fa-fw">Modifier</i>
+                                    </a>
+                                    <a onclick="return confirm('Voulez vous supprimer ce trajet ?')"
+                                        class="btn btn-sm btn-danger float-left"
+                                        href="/driver/suppr_trajet?idT={{ element.id }}">
+                                        <i class="fa fa-trash fa-lg fa-fw">Supprimer</i>
+                                    </a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
