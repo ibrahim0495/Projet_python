@@ -27,8 +27,6 @@ class Personne(models.Model):
 class Passenger(models.Model):
     personne= models.ForeignKey(Personne,on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.personne
 
 class Conducteur(models.Model):
     personne= models.ForeignKey(Personne,on_delete=models.CASCADE)
@@ -45,10 +43,9 @@ class Trajet(models.Model):
 
 class Voyage(models.Model):
     trajet = models.ForeignKey(Trajet,on_delete=models.CASCADE)
-    passenger = models.ForeignKey(Passenger,on_delete=models.CASCADE)
+    passenger = models.ForeignKey(Passenger,on_delete=models.CASCADE,default=1)
 
-    def __str__(self):
-        return self.passenger +" "+ self.trajet
+
 
 
 #################################################################################################################################################################################

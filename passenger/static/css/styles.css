@@ -85,7 +85,7 @@
 
                                                                             nav.black ul li a {
                                                                                 color: #fff;
-                                                                        
+                                                                                text-decoration: none;
                                                                             }
 
                                                                             section.sec1{
@@ -121,7 +121,7 @@
                                                                             /* LANDING PAGE STYLES */
 
                                                                             .homebody{
-                                                                                background: url(images/city6.jpg);
+                                                                                background: url(images/backgr.jpg);
                                                                                 
                                                                                 height: 100vh;
                                                                                 padding-left: 0%;

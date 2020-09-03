@@ -21,6 +21,9 @@ def landing_accueil(request):
     dataTrajet = Trajet.objects.all()
     return render(request, 'landingpage/acceuil.html', {'dataTrajet': dataTrajet})
 
+def landing_aPropos(request):
+    return render(request, 'landingpage/a_propos.html')
+
 def landing_diver(request):
     return render(request,'driver/home.html')
 
@@ -71,14 +74,10 @@ def list_driver(request):
 
 def load_passenger(request):
     trajetFormSet = modelformset_factory(Trajet,fields=('depart','arrivee','prix'))
-    formset = trajetFormSet()
+    formset = Trajet.objects.all()
     return render(request, 'passenger/base.html',{"formset":formset})
 
 def trajet_souscrite(request):
-    obj = str(request.GET)
-    query = request.GET['query']
-    message = "{}".format(obj, query)
-    dico={}
-    dico[0]=message
-    return render(request,'passenger/souscrire.html',dico)
-
+    query = int(str(request.GET['query']))
+    result = Trajet.objects.get(id=query)
+    return render(request,'passenger/souscrire.html', {"result":result})

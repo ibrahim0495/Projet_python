@@ -41,11 +41,15 @@
                         <tbody>
                             {% for form in formset %}
                                 <tr class="table-info">
-                                    <td scope="row"> {{ form.depart.value }} </td>
-                                    <td scope="row"> {{ form.arrivee.value }} </td>
-                                    <td scope="row"> {{ form.prix.value }} </td>
-                                    <td scope="row"> <button class="btn btn-success">
-                                        <a href="/passenger/souscrire?query=Trajet {{ form.depart.value }} {{ form.arrivee.value }} à {{ form.prix.value }} FCFA souscite avec succés">Souscrire</a></button>
+                                    <td scope="row"> {{ form.depart }} </td>
+                                    <td scope="row"> {{ form.arrivee }} </td>
+                                    <td scope="row"> {{ form.prix }} </td>
+                                    <td scope="row">
+                                        <a
+                                        class="btn btn-sm btn-primary"
+                                        href="/passenger/souscrire?query={{ form.id }}">
+                                        <i class="fa fa-success fa-lg fa-fw">Souscrire</i>
+                                        </a>
                                     </td>
                                 </tr>
                             {% endfor %}

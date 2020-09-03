@@ -27,10 +27,22 @@
     <div class="container-fluid" id="body">
         {% block content %}
             <h1 style="text-align: center;">Trajet souscrite avec succés</h1>
-                {% for dic in dico %}
-                    <h2>{{ dic }}</h2>
-                {% endfor %}
             <h3 style="text-align: center;">Bon voyage!</h3>
+            <table class="table table-flush" id="datatable-basic">
+                <thead>
+                    <th>Depart</th>
+                    <th>Arrivé</th>
+                    <th>Prix</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ result.depart }}</td>
+                        <td>{{ result.arrivee }}</td>
+                        <td>{{ result.prix }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
         {% endblock %}
     </div>
 </body>

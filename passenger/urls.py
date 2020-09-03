@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('', views.landing, name='landing'),
     path('landingpage/accueil', views.landing_accueil, name='landing_accueil'),
+    path('landingpage/a_propos', views.landing_aPropos, name='a_propos'),
     path('driver/profile', views.landing_diver, name='driver'),
     path('driver/ajout_trajet', views.ajouter_trajet, name='form_ajout_trajet'),
     path('driver/modifier', views.trajet_modifier, name='form_modif_trajet'),

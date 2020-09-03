@@ -1,0 +1,22 @@
+{% extends 'landingpage/nav-base.html' %}
+{% load bootstrap3 %} 
+{% block content %}
+    <div class="wrapper">
+        <nav style="background-color : #D3D3D3;">
+        <div class="logo"><img src="../../static/css/images/uber.png" style="margin-top: -20%; height: 80px;width: 80px;" alt="uber logo"></div>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/driver/liste_driver">Conducteur</a></li>
+            <li><a href="/passenger/base">Passager</a></li>
+        </ul>
+        </nav>
+        <h1 style="text-align: center;">A Propos</h1>
+        <p style="text-align: center; font-size: 30px;">
+            Ceci est un site développé entièrement avec le Framework Django et Sqlite3.<br/>
+            Elle permet la gestion de covoiturage: les conducteurs ont la possibilité <br/>
+            d'ajouter,de modifier et de supprimer un trajet et les passagers ont également <br/>
+            la possibilté  de souscrire à un trajet.<br/>
+        </p>
+
+    </div>
+{% endblock %}
